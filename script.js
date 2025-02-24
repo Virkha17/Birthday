@@ -2,6 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const nameInput = document.getElementById("nameInput");
     const submitBtn = document.getElementById("submitBtn");
     const countdownText = document.getElementById("countdownText");
+    const loadingOverlay = document.getElementById("loadingOverlay");
+
+    // Cek apakah sudah pernah loading sebelumnya
+    if (sessionStorage.getItem("hasLoaded")) {
+        loadingOverlay.style.display = "none"; // Jangan tampilkan loading kalau sudah pernah masuk
+    }
 
     nameInput.addEventListener("input", () => {
         nameInput.value = nameInput.value.replace(/[^a-zA-Z\s]/g, ""); // Hanya huruf dan spasi
@@ -24,10 +30,15 @@ document.addEventListener("DOMContentLoaded", () => {
     
             if (countdown === 0) {
                 clearInterval(countdownInterval);
-                document.getElementById("loadingOverlay").style.display = "flex"; // Baru tampil setelah hitungan selesai
+                
+                // Simpan status loading di sessionStorage
+                sessionStorage.setItem("hasLoaded", "true");
+
+                loadingOverlay.style.display = "flex"; // Baru tampil setelah hitungan selesai
+
                 setTimeout(() => {
                     window.location.href = `birthday.html?name=${encodeURIComponent(name)}`;
-                }, 5000); // Tambah delay agar loading terlihat sebelum pindah halaman
+                }, 4000); // Tambah delay agar loading terlihat sebelum pindah halaman
             }
         }, 1000);
     });

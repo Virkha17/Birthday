@@ -113,8 +113,8 @@ document.addEventListener("DOMContentLoaded", function () {
         animateCount("detik", timeData.detik, 5000, startRealTimeUpdate);
         animateCount("menit", timeData.menit, 5000);
         animateCount("jam", timeData.jam, 5000);
-        animateCount("hari", timeData.hari, 50000);
-        animateCount("minggu", timeData.minggu, 50000);
+        animateCount("hari", timeData.hari, 5000);
+        animateCount("minggu", timeData.minggu, 5000);
         animateCount("bulan", timeData.bulan, 50000);
         animateCount("tahun", timeData.tahun, 50000);
 
