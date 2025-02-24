@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
     
-        let countdown = 2;
+        let countdown = 7;
         countdownText.textContent = `Nama akan segera dikirim dalam ${countdown}...`;
         submitBtn.disabled = true;
     
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("loadingOverlay").style.display = "flex"; // Baru tampil setelah hitungan selesai
                 setTimeout(() => {
                     window.location.href = `birthday.html?name=${encodeURIComponent(name)}`;
-                }, 2000); // Tambah delay agar loading terlihat sebelum pindah halaman
+                }, 5000); // Tambah delay agar loading terlihat sebelum pindah halaman
             }
         }, 1000);
     });
