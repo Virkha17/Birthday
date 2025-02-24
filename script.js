@@ -41,6 +41,5 @@ document.addEventListener("DOMContentLoaded", () => {
                 }, 4000); // Tambah delay agar loading terlihat sebelum pindah halaman
             }
         }, 1000);
-    });
-    
+    });  
 });
