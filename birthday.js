@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const fireworksContainer = document.getElementById("fireworksContainer");
     const blowCandleBtn = document.getElementById("blowCandleBtn");
 
-    if (!sessionStorage.getItem("hasLoaded")) {
-        sessionStorage.setItem("hasLoaded", "true"); // Set ini agar loading tidak muncul lagi
+    if (!localStorage.getItem("hasLoaded")) {
+        localStorage.setItem("hasLoaded", "true"); // Set ini agar loading tidak muncul lagi
     }    
 
     function playAudio() {
