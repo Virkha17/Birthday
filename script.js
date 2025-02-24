@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const loadingOverlay = document.getElementById("loadingOverlay");
 
     // Cek apakah sudah pernah loading sebelumnya
-    if (sessionStorage.getItem("hasLoaded")) {
+    if (localStorage.getItem("hasLoaded")) {
         loadingOverlay.style.display = "none"; // Jangan tampilkan loading kalau sudah pernah masuk
     }
 
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 clearInterval(countdownInterval);
                 
                 // Simpan status loading di sessionStorage
-                sessionStorage.setItem("hasLoaded", "true");
+                localStorage.setItem("hasLoaded", "true");
 
                 loadingOverlay.style.display = "flex"; // Baru tampil setelah hitungan selesai
 

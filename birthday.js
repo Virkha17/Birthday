@@ -1,6 +1,3 @@
-console.log("Fireworks.js:", Fireworks);
-console.log("Fireworks Default:", Fireworks.default);
-
 document.addEventListener("DOMContentLoaded", function () {
     const params = new URLSearchParams(window.location.search);
     const namaInput = params.get("name");
@@ -16,6 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const birthdayCake = document.getElementById("birthdayCake");
     const fireworksContainer = document.getElementById("fireworksContainer");
     const blowCandleBtn = document.getElementById("blowCandleBtn");
+
+    if (!sessionStorage.getItem("hasLoaded")) {
+        sessionStorage.setItem("hasLoaded", "true"); // Set ini agar loading tidak muncul lagi
+    }    
 
     function playAudio() {
         audio.play().catch(error => {
