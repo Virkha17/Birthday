@@ -29,9 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
             countdownText.textContent = `Nama akan segera dikirim dalam ${countdown}...`;
     
             if (countdown === 0) {
-                clearInterval(countdownInterval);
+                clearInterval(countdownInterval); 
                 
-                // Simpan status loading di sessionStorage
+                // Simpan status loading di localStorage
                 localStorage.setItem("hasLoaded", "true");
 
                 loadingOverlay.style.display = "flex"; // Baru tampil setelah hitungan selesai
