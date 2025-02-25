@@ -4,15 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const countdownText = document.getElementById("countdownText");
     const loadingOverlay = document.getElementById("loadingOverlay");
 
-    // Sembunyikan loading overlay jika halaman diakses melalui tombol back
-    if (performance.navigation.type === 2 || document.referrer.includes('birthday.html')) {
-        loadingOverlay.style.display = "none";
-        localStorage.setItem("hasLoaded", "true");
-    }
-
     // Cek apakah sudah pernah loading sebelumnya
     if (localStorage.getItem("hasLoaded")) {
-        loadingOverlay.style.display = "none";
+        loadingOverlay.style.display = "none"; // Jangan tampilkan loading kalau sudah pernah masuk
     }
 
     nameInput.addEventListener("input", () => {
