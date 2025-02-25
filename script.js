@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let countdown = 7;
         countdownText.textContent = `Nama akan segera dikirim dalam ${countdown}...`;
         submitBtn.disabled = true;
-        loadingOverlay.style.display = "flex";
     
         const countdownInterval = setInterval(() => {
             countdown--;
