@@ -4,13 +4,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const countdownText = document.getElementById("countdownText");
     const loadingOverlay = document.getElementById("loadingOverlay");
 
-    // Cek apakah sudah pernah loading sebelumnya
-    if (localStorage.getItem("hasLoaded")) {
-        loadingOverlay.style.display = "none"; // Jangan tampilkan loading kalau sudah pernah masuk
+    // Sembunyikan loading overlay di awal
+    loadingOverlay.style.display = "none";
+
+    // Reset status button dan countdown text jika kembali dari birthday.html
+    if (document.referrer.includes('birthday.html')) {
+        submitBtn.disabled = false;
+        countdownText.textContent = "";
     }
 
     nameInput.addEventListener("input", () => {
-        nameInput.value = nameInput.value.replace(/[^a-zA-Z\s]/g, ""); // Hanya huruf dan spasi
+        nameInput.value = nameInput.value.replace(/[^a-zA-Z\s]/g, "");
     });
 
     submitBtn.addEventListener("click", () => {
@@ -30,15 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
     
             if (countdown === 0) {
                 clearInterval(countdownInterval);
+                loadingOverlay.style.display = "flex";
                 
-                // Simpan status loading di sessionStorage
-                localStorage.setItem("hasLoaded", "true");
-
-                loadingOverlay.style.display = "flex"; // Baru tampil setelah hitungan selesai
-
                 setTimeout(() => {
                     window.location.href = `birthday.html?name=${encodeURIComponent(name)}`;
-                }, 4000); // Tambah delay agar loading terlihat sebelum pindah halaman
+                }, 4000);
             }
         }, 1000);
     });  
