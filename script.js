@@ -31,14 +31,17 @@ document.addEventListener("DOMContentLoaded", () => {
             if (countdown === 0) {
                 clearInterval(countdownInterval);
                 
-                // Simpan status loading di sessionStorage
+                // Hanya tampilkan loading jika belum pernah loading sebelumnya
+                if (!localStorage.getItem("hasLoaded")) {
+                    loadingOverlay.style.display = "flex";
+                }
+                
+                // Simpan status loading di localStorage
                 localStorage.setItem("hasLoaded", "true");
-
-                loadingOverlay.style.display = "flex"; // Baru tampil setelah hitungan selesai
 
                 setTimeout(() => {
                     window.location.href = `birthday.html?name=${encodeURIComponent(name)}`;
-                }, 4000); // Tambah delay agar loading terlihat sebelum pindah halaman
+                }, 4000);
             }
         }, 1000);
     });  
