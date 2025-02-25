@@ -4,10 +4,6 @@
     margin: 0;
     padding: 0;
 }
-#loadingOverlay {
-    display: none;
-}
-
 
 /* Pastikan tidak ada scroll horizontal */
 html, body {
